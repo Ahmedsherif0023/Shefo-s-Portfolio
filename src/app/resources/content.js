@@ -15,7 +15,6 @@ const person = {
 
 const newsletter = {
   display: true,
-  // eslint-disable-next-line react/no-unescaped-entities
   title: <>Subscribe to {person.firstName}&#39;s Newsletter</>,
   description: (
     <>
@@ -54,7 +53,7 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
+  title: `${person.name}&#39;s Portfolio`,
 
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Turning Your ideas alife</>,
@@ -69,7 +68,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Ahmed, a React.js developer , I build modern, interactive web apps
+      I&apos;m Ahmed, a React.js developer, I build modern, interactive web apps
       using React, reusable components, and smart state management.
     </>
   ),
