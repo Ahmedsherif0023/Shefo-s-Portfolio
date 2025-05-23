@@ -15,8 +15,8 @@ const person = {
 
 const newsletter = {
   display: true,
-// eslint-disable-next-line react/no-unescaped-entities
-title: <>Subscribe to {person.firstName}&#39;s Newsletter</>,
+  // eslint-disable-next-line react/no-unescaped-entities
+  title: <>Subscribe to {person.firstName}&#39;s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the
@@ -54,9 +54,9 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}&#39;s Portfolio`,
+  title: `${person.name}'s Portfolio`,
 
-    description: `Portfolio website showcasing my work as a ${person.role}`,
+  description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Turning Your ideas alife</>,
   featured: {
     display: true,
@@ -69,7 +69,8 @@ const home = {
   },
   subline: (
     <>
-      I'm Ahmed, a React.js developer , I  build modern, interactive web apps using React, reusable components, and smart state management.
+      I'm Ahmed, a React.js developer , I build modern, interactive web apps
+      using React, reusable components, and smart state management.
     </>
   ),
 };
