@@ -1,4 +1,6 @@
 ## Subscribe to my newsletter
+import Link from 'next/link';
+
 <form
   action="https://buttondown.com/api/emails/embed-subscribe/ahmedsherifoo23"
   method="post"
@@ -6,18 +8,19 @@
   onsubmit="window.open('https://buttondown.com/ahmedsherifoo23', 'popupwindow')"
   class="embeddable-buttondown-form"
 >
-  <label for="bd-email">Enter your email</label>
+  <label htmlFor="bd-email">Enter your email</label>
   <input type="email" name="email" id="bd-email" />
   
   <input type="submit" value="Subscribe" />
   <p>
-    <Link to="https://buttondown.com/refer/ahmedsherifoo23" target="_blank">Powered by Buttondown.</Link>
+    <Link href="https://buttondown.com/refer/ahmedsherifoo23" target="_blank">Powered by Buttondown.</Link>
   </p>
 </form>
 
-<style>
+<style jsx>{`
   .embeddable-buttondown-form {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     margin-top: 12px;
   }
@@ -25,6 +28,8 @@
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
   }
   .embeddable-buttondown-form input[type="submit"] {
     padding: 8px 16px;
@@ -33,10 +38,11 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.3s ease;
+    width: fit-content;
   }
   .embeddable-buttondown-form input[type="submit"]:hover {
     transform: scale(1.05);
     background: #0056b3;
   }
-</style>
+`}</style>
