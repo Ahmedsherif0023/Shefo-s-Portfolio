@@ -15,7 +15,8 @@ const person = {
 
 const newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
+  title: <>Subscribe to {person.firstName}&#39;s Newsletter</>,
+
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the
@@ -54,6 +55,7 @@ const home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}&#39;s Portfolio`,
+
     description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Turning Your ideas alife</>,
   featured: {
