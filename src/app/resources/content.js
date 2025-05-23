@@ -16,8 +16,7 @@ const person = {
 const newsletter = {
   display: true,
 // eslint-disable-next-line react/no-unescaped-entities
-title: <>Subscribe to {person.firstName}'s Newsletter</>,
-
+title: <>Subscribe to {person.firstName}&#39;s Newsletter</>,
   description: (
     <>
       I occasionally write about design, technology, and share thoughts on the
