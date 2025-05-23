@@ -11,6 +11,7 @@ import { routes, display } from "@/app/resources";
 import { person, about, blog, work } from "@/app/resources/content";
 import { ThemeToggle } from "./ThemeToggle";
 import Logo from "../../public/images/Sign.png";
+import Image from 'next/image';
 type TimeDisplayProps = {
   timeZone: string;
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
@@ -75,9 +76,7 @@ export const Header = () => {
       >
         <Flex className="ml-20">
         <Link href="/">
-            <img
-              src={Logo.src}
-              alt="My Logo"
+            <Image src={Logo} alt="Logo" 
               className="Logo"
               style={{
                 width: "120px", // Larger width
@@ -89,8 +88,7 @@ export const Header = () => {
                 zIndex: 10,
                 // boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                 borderRadius: "16px",
-              }}
-            />
+              }}/>
         </Link>
         </Flex>
 

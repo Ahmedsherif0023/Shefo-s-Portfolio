@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { Flex, SmartImage, IconButton } from ".";
 import styles from "./CompareImage.module.scss";
+import { useCallback, useState, useRef, useEffect } from "react";
 
 interface SideContent {
   src: string | React.ReactNode;
@@ -34,7 +34,11 @@ const renderContent = (content: SideContent, clipPath: string) => {
   );
 };
 
-export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImageProps) => {
+export const CompareImage = ({
+  leftContent,
+  rightContent,
+  ...rest
+}: CompareImageProps) => {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -47,25 +51,26 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
     isDragging.current = false;
   };
 
-  const updatePosition = (clientX: number) => {
-    if (!isDragging.current || !containerRef.current) return;
+  const updatePosition = useCallback((clientX: number) => {
+  if (!isDragging.current || !containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const containerWidth = rect.width;
+  const rect = containerRef.current.getBoundingClientRect();
+  const x = clientX - rect.left;
+  const containerWidth = rect.width;
 
-    // Calculate percentage (constrained between 0 and 100)
-    const newPosition = Math.max(0, Math.min(100, (x / containerWidth) * 100));
-    setPosition(newPosition);
-  };
+  const newPosition = Math.max(0, Math.min(100, (x / containerWidth) * 100));
+  setPosition(newPosition);
+}, []);
 
-  const handleMouseMove = (e: MouseEvent) => {
-    updatePosition(e.clientX);
-  };
-
-  const handleTouchMove = (e: TouchEvent) => {
-    updatePosition(e.touches[0].clientX);
-  };
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      updatePosition(e.clientX);
+    },
+    [updatePosition]
+  );
+const handleTouchMove = useCallback((e: TouchEvent) => {
+  updatePosition(e.touches[0].clientX);
+}, [updatePosition]);
 
   useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
@@ -79,7 +84,7 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
       document.removeEventListener("touchmove", handleTouchMove);
       document.removeEventListener("touchend", handleMouseUp);
     };
-  }, []);
+  }, [handleMouseMove, handleTouchMove, handleMouseUp]);
 
   return (
     <Flex
