@@ -16,6 +16,8 @@ export async function generateMetadata() {
 }
 
 export default function Blog() {
+    console.log('Blog data:', { blog, person, newsletter }); // Check if data exists
+
   return (
     <Column maxWidth="s">
       <Schema
