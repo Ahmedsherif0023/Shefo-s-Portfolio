@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
@@ -73,7 +74,7 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex className="ml-20">
-        <a href="/">
+        <Link href="/">
             <img
               src={Logo.src}
               alt="My Logo"
@@ -90,7 +91,7 @@ export const Header = () => {
                 borderRadius: "16px",
               }}
             />
-        </a>
+        </Link>
         </Flex>
 
         <Flex fillWidth horizontal="center">
