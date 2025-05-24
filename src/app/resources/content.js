@@ -7,7 +7,7 @@ const person = {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "React.js Developer",
-  avatar: "/images/Avatar1.jpg",
+  avatar: "/images/Avatar.png",
   email: "ahmedsherifoo23@gmail.com",
   location: "Egypt", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Arabic"], // optional: Leave the array empty if you don't want to display languages
@@ -107,44 +107,25 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
+        company: "Freelancer",
         timeframe: "2022 - Present",
-        role: "Senior React.JS Dveleoper",
+        role: "React.JS Dveleoper",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20%
-            increase in user engagement and 30% faster load times.
+            Turned lots of UI designs into fully functional web apps using
+            React.js,
           </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows,
-            enabling designers to iterate 50% faster.
-          </>,
+          <>made fully responsive web apps using CSS and Tailwind CSS,</>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/project-01/PersonalPortfolio.png",
+            alt: "Personal Portfolio",
             width: 16,
             height: 9,
           },
         ],
-      },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple
-            platforms, improving design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line,
-            contributing to a 15% increase in overall company revenue.
-          </>,
-        ],
-        images: [],
       },
     ],
   },
@@ -153,12 +134,14 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Tanta University",
+        description: <>Studied Business.</>,
       },
       {
         name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        description: (
+          <>Studied online marketing, personal branding and of course Coding.</>
+        ),
       },
     ],
   },
@@ -174,13 +157,13 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/projects/Figmadesigns/E-commerce1.png",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/projects/Figmadesigns/E-commerce2.png",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -195,7 +178,7 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
+            src: "/images/projects/project-01/PersonalPortfolio.png",
             alt: "Project image",
             width: 16,
             height: 9,

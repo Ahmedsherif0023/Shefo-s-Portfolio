@@ -11,6 +11,11 @@
     mask-size: 100% 100%;
 }
 
+@media (max-width: 768px) {
+  .Logo {
+    left: -20px !important;
+  }
+}
 @media (--s) {
     .position {
         top: auto;

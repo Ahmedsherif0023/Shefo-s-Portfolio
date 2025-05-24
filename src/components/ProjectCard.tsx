@@ -64,15 +64,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
             <Flex gap="24" wrap>
               {content?.trim() && (
-                <SmartLink
-                  suffixIcon="arrowUpRightFromSquare"
-                  style={{ margin: "0", width: "fit-content" }}
-                  href={href}
-                >
-                  <Text variant="body-default-s">Project Link</Text>
-                </SmartLink>
+                <div>
+                  <SmartLink
+                    suffixIcon="arrowUpRightFromSquare"
+                    style={{ margin: "0", width: "fit-content" }}
+                    href={href}
+                  >
+                    <Text variant="body-default-s">Project Blog</Text>
+                  </SmartLink>
+                  <SmartLink className="Project-link" href={link} style={{ marginLeft: "10px" }}>
+                    <Text variant="body-default-s">Project Link</Text>
+                  </SmartLink>
+                </div>
               )}
-            
             </Flex>
           </Column>
         )}

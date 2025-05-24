@@ -4,17 +4,19 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
+import { Fade, Flex, Line, ToggleButton, useTheme } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
 import { person, about, blog, work } from "@/app/resources/content";
 import { ThemeToggle } from "./ThemeToggle";
-import Logo from "../../public/images/Sign.png";
-import Image from 'next/image';
+import SignLogo from "../../public/images/Sign.png";
+import SignBLogo from "../../public/images/Sign_b.png";
+import Image from "next/image";
+
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({
@@ -46,10 +48,32 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({
   return <>{currentTime}</>;
 };
 
-export default TimeDisplay;
-
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const { theme } = useTheme(); // ✅ Use theme from context
+
+  const [logoStyle, setLogoStyle] = useState<{
+    width: number;
+    left: number;
+    top?: number;
+    bottom?: number;
+  }>({ width: 120, left: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 500) {
+        setLogoStyle({ width: 80, left: -30, top: -20 });
+      } else if (w < 900) {
+        setLogoStyle({ width: 100, left: -10, top: -30 });
+      } else {
+        setLogoStyle({ width: 120, left: 0, top: -30 });
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
@@ -75,21 +99,26 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex className="ml-20">
-        <Link href="/">
-            <Image src={Logo} alt="Logo" 
+          <Link href="/">
+            <Image
+              src={theme === "dark" ? SignLogo : SignBLogo} // ✅ Correct logic
+              alt="Logo"
               className="Logo"
               style={{
-                width: "120px", // Larger width
-                height: "120px", // Larger height
+                width: logoStyle.width + "px",
+                height: logoStyle.width + "px",
                 position: "absolute",
-                top: "-45px", // Move up so it doesn't increase header height
-                left: 0,
-                // objectFit: "contain",
+                top:
+                  logoStyle.top !== undefined
+                    ? logoStyle.top + "px"
+                    : "-30px",
+                left: logoStyle.left + "px",
                 zIndex: 10,
-                // boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                 borderRadius: "16px",
-              }}/>
-        </Link>
+                transition: "width 0.3s, left 0.3s, top 0.3s",
+              }}
+            />
+          </Link>
         </Flex>
 
         <Flex fillWidth horizontal="center">
@@ -164,13 +193,18 @@ export const Header = () => {
               )}
               {display.themeSwitcher && (
                 <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <Line
+                    background="neutral-alpha-medium"
+                    vert
+                    maxHeight="24"
+                  />
                   <ThemeToggle />
                 </>
               )}
             </Flex>
           </Flex>
         </Flex>
+
         <Flex horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
@@ -187,7 +221,6 @@ export const Header = () => {
             >
               {display.location && <Flex hide="s">{person.location}</Flex>}
             </Flex>
-
             <Flex hide="s">
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>
@@ -197,3 +230,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default Header;
