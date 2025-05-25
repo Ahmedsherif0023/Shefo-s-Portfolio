@@ -1,11 +1,14 @@
 const CACHE_NAME = 'your-app-cache-v1';
 const urlsToCache = [
   '/',
+  '/index.html',
+  '/manifest.json',
   '/icons/icon512_maskable.png',
-  '/icons/icon512_rounded.png'
+  '/icons/icon512_rounded.png',
+  // Add other essential assets like your main.js, styles.css etc. if needed
 ];
 
-// Install event: cache core assets
+// Install event: Cache core assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
@@ -13,7 +16,7 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Activate event: clean up old caches
+// Activate event: Clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -25,15 +28,5 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch event: App Shell model for navigation, cache-first for others
-self.addEventListener('fetch', event => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      caches.match('/').then(response => response || fetch(event.request))
-    );
-  } else {
-    event.respondWith(
-      caches.match(event.request).then(response => response || fetch(event.request))
-    );
-  }
-});
+// Fetch event: App Shell model + Cache fallback
+s

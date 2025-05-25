@@ -144,6 +144,8 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
 </form>
         <style>
         {`
+
+        
           .newsletter-input {
             padding: 8px;
             border-radius: 4px;
@@ -158,7 +160,7 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
           }
             .submitBtn{
             background-color: transparent;
-            color:"#f0f0f0";
+            color: #fff;
             border: 1px solid #f0f0f0;
             padding: 8px 16px;
             border-radius: 4px;
@@ -171,6 +173,18 @@ export const Mailchimp = ({ newsletter }: { newsletter: NewsletterProps }) => {
             color: #fff;
             transition: color 0.3s ease-in-out;
             }
+            @media (max-width: 435px) {
+            .submitBtn{
+            margin-top: 10px;
+            margin-left: -15px;
+            }
+              form{
+          display:flex;
+          jsutify-content:center;
+          align-items:center;
+          flex-direction:column;
+          }
+        }
         `}
       </style>
     </Column>
