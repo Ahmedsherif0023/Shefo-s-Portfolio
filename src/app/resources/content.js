@@ -120,7 +120,7 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/VelvetPour/img1.png",
+            src: "/images/projects/velvetpour/img1.png",
             alt: "Personal Portfolio",
             width: 16,
             height: 9,
@@ -178,13 +178,13 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/VelvetPour/img1.png",
+            src: "/images/projects/velvetpour/img1.png",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/VelvetPour/img2.png",
+            src: "/images/projects/velvetpour/img2.png",
             alt: "Project image",
             width: 16,
             height: 9,
