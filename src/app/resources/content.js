@@ -120,7 +120,7 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/PersonalPortfolio.png",
+            src: "/images/projects/VelvetPour/img1.png",
             alt: "Personal Portfolio",
             width: 16,
             height: 9,
@@ -164,6 +164,27 @@ const about = {
           },
           {
             src: "/images/projects/Figmadesigns/E-commerce2.png",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "GSAP",
+        description: (
+          <>Building Responsive and Interactive Web apps</>
+        ),
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/VelvetPour/img1.png",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/VelvetPour/img2.png",
             alt: "Project image",
             width: 16,
             height: 9,
